@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_demo/text_style_m.dart';
 
 // ignore: slash_for_doc_comments
 /**
@@ -146,7 +147,10 @@ class _ScaffoldDemoState extends State<ScaffoldDemo> {
           ),
           new ListTile(
             leading: new Icon(Icons.chat),
-            title: new Text("会话"),
+            title: new Text(
+              "会话",
+              style: TextStyleMs.black_24,
+            ),
           ),
           new ListTile(
             leading: new Icon(Icons.settings),

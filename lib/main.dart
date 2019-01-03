@@ -37,6 +37,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var blackTextStyle =
+      new TextStyle(color: const Color(0xFF333333), fontSize: 15.0);
+
   void _incrementCounter() {
     setState(() {});
   }
@@ -75,12 +78,18 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: toTextField,
             ),
             OutlineButton(
-              child: Text("Scaffold"),
+              child: Text(
+                "Scaffold",
+                style: new TextStyle(color: Color(0xFF333333), fontSize: 14.0),
+              ),
               textColor: Colors.black,
               onPressed: () {},
             ),
             OutlineButton(
-              child: Text("Scaffold"),
+              child: Text(
+                "Scaffold",
+                style: blackTextStyle,
+              ),
               textColor: Colors.black,
               onPressed: () {},
             ),
