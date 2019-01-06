@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_demo/layout_widget.dart';
 import 'package:flutter_widget_demo/scaffold_demo.dart';
 import 'package:flutter_widget_demo/textfield_demo.dart';
 
@@ -54,6 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
         context, new MaterialPageRoute(builder: (context) => TextFieldDemo()));
   }
 
+  void toLayoutDemo() {
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => LayoutDemo()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,11 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             OutlineButton(
               child: Text(
-                "Scaffold",
+                "布局widget",
                 style: new TextStyle(color: Color(0xFF333333), fontSize: 14.0),
               ),
               textColor: Colors.black,
-              onPressed: () {},
+              onPressed: toLayoutDemo,
             ),
             OutlineButton(
               child: Text(
