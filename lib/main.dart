@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_demo/container_layout_widget.dart';
 import 'package:flutter_widget_demo/layout_widget.dart';
 import 'package:flutter_widget_demo/scaffold_demo.dart';
+import 'package:flutter_widget_demo/scroll_layout.dart';
 import 'package:flutter_widget_demo/textfield_demo.dart';
 
 void main() => runApp(MyApp());
@@ -67,6 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
         new MaterialPageRoute(builder: (context) => ContainerLayoutDemo()));
   }
 
+  void toScrollLayoutDemo() {
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => ScrollViewDemo()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,6 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               textColor: Colors.black,
               onPressed: toRqLayoutDemo,
+            ),
+            OutlineButton(
+              child: Text(
+                "滚动的widget",
+                style: blackTextStyle,
+              ),
+              textColor: Colors.black,
+              onPressed: toScrollLayoutDemo,
             ),
           ],
         ),
