@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_demo/container_layout_widget.dart';
+import 'package:flutter_widget_demo/features_layout.dart';
 import 'package:flutter_widget_demo/layout_widget.dart';
+import 'package:flutter_widget_demo/pointer_notification.dart';
 import 'package:flutter_widget_demo/scaffold_demo.dart';
 import 'package:flutter_widget_demo/scroll_layout.dart';
 import 'package:flutter_widget_demo/textfield_demo.dart';
@@ -73,6 +75,16 @@ class _MyHomePageState extends State<MyHomePage> {
         context, new MaterialPageRoute(builder: (context) => ScrollViewDemo()));
   }
 
+  void toFeaturesWidgetDemo() {
+    Navigator.push(context,
+        new MaterialPageRoute(builder: (context) => FeaturesWidgetDemo()));
+  }
+
+  void toPointerWidgetDemo() {
+    Navigator.push(context,
+        new MaterialPageRoute(builder: (context) => PointerWidgetDemo()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,6 +131,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               textColor: Colors.black,
               onPressed: toScrollLayoutDemo,
+            ),
+            OutlineButton(
+              child: Text(
+                "功能型Widget",
+                style: blackTextStyle,
+              ),
+              textColor: Colors.black,
+              onPressed: toFeaturesWidgetDemo,
+            ),
+            OutlineButton(
+              child: Text(
+                "事件处理与通知",
+                style: blackTextStyle,
+              ),
+              textColor: Colors.black,
+              onPressed: toPointerWidgetDemo,
             ),
           ],
         ),
