@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_demo/animation_layout.dart';
 import 'package:flutter_widget_demo/container_layout_widget.dart';
 import 'package:flutter_widget_demo/features_layout.dart';
 import 'package:flutter_widget_demo/layout_widget.dart';
@@ -85,6 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
         new MaterialPageRoute(builder: (context) => PointerWidgetDemo()));
   }
 
+  void toAnimationWidgetDemo() {
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => AnimationDemo()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,6 +153,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               textColor: Colors.black,
               onPressed: toPointerWidgetDemo,
+            ),
+            OutlineButton(
+              child: Text(
+                "动画",
+                style: blackTextStyle,
+              ),
+              textColor: Colors.black,
+              onPressed: toAnimationWidgetDemo,
             ),
           ],
         ),

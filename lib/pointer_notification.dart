@@ -74,6 +74,19 @@ class _PointerWidgetDemoState extends State<PointerWidgetDemo> {
                               builder: (context) => GestureConflictDemo()));
                     },
                   ),
+                  OutlineButton(
+                    child: Text(
+                      "自定义通知",
+                      style: TextStyleMs.black_28,
+                    ),
+                    textColor: Colors.black,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationDome()));
+                    },
+                  ),
                 ],
               ),
             )));
@@ -440,6 +453,7 @@ class GestureConflictDemo extends StatefulWidget {
 class _GestureConflictDemoState extends State<GestureConflictDemo> {
   double _left = 0.0;
   double _leftB = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -502,4 +516,55 @@ class _GestureConflictDemoState extends State<GestureConflictDemo> {
       ),
     );
   }
+}
+
+// ignore: slash_for_doc_comments
+/**
+ * 自定义通知
+ */
+class NotificationDome extends StatefulWidget {
+  @override
+  _NotificationDomeState createState() => new _NotificationDomeState();
+}
+
+class _NotificationDomeState extends State<NotificationDome> {
+  String _msg = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: AppBar(
+          title: Text("自定义通知"),
+          centerTitle: true,
+        ),
+        body: NotificationListener<MyNotification>(
+          onNotification: (notification) {
+            _msg = notification.msg;
+          },
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Builder(
+                  //context是根Context，而NotificationListener是监听的子树，
+                  // 所以我们通过Builder来构建RaisedButton，来获得按钮位置的context。
+                  builder: (context) {
+                    return RaisedButton(
+                      //按钮点击时分发通知
+                      onPressed: () => MyNotification("Hi").dispatch(context),
+                      child: Text("Send Notification"),
+                    );
+                  },
+                ),
+                Text(_msg)
+              ],
+            ),
+          ),
+        ));
+  }
+}
+
+class MyNotification extends Notification {
+  String msg;
+
+  MyNotification(this.msg);
 }
